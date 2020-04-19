@@ -9,7 +9,7 @@ const initialAppState = {
 const calculator = (state = initialAppState, action) => {
   if (action.type === actionTypes.INPUT_NUMBER) {
     return {
-      ...state, // この ... 記法が分からない
+      ...state, // スプレッド構文
       inputValue: state.inputValue * 10 + action.number,
       showingResult: false,
     };
