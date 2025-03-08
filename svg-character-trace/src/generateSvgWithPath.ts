@@ -1,7 +1,8 @@
-// npx ts-node src/generateSvgWithPath.ts
+// npx tsc -p tsconfig.scripts.json
+// node dist/generateSvgWithPath.js
 import opentype from "opentype.js";
 
-const fontPath = "./src/NotoSansJP-VariableFont_wght.ttf"; // 利用したいフォントファイルへのパスに置き換えてください
+const fontPath = "./src/NotoSansJP-VariableFont_wght.ttf";
 const character = "あ";
 const fontSize = 100;
 
@@ -10,7 +11,6 @@ opentype.load(fontPath, (err: any, font: any) => {
     console.error("フォントの読み込みに失敗しました:", err);
     return;
   }
-  // 文字のパスを取得（x座標:0, y座標:fontSize を指定）
   const path = font.getPath(character, 0, fontSize, fontSize);
   const svgPath = path.toSVG();
   console.log(svgPath);
